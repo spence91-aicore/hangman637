@@ -22,5 +22,9 @@ if __name__ == "__main__":
     # random.choice(word_list)
     print(word)
 
-    guess = input('Please Enter a single Character\n')[0]
+    guess = input('Please Enter a single Character\n')
     # print(guess)
+    if len(guess) == 1:
+        print('Good guess!')
+    else:
+        print('Oops! That is not a vlaid input')
