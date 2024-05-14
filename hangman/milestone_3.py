@@ -17,10 +17,13 @@ def is_guess_in_word(guess:str, word:str) -> bool:
         return False
 
 if __name__ == "__main__":
-    while True:
+    while True:      
         guess = input('Please Enter a single Character\n')
         if is_single_character(guess) == False or is_alpha_character(guess) == False:
             print('Invalid letter. Please, enter a single alphabetical character.')
             continue
-        break 
+        if is_guess_in_word(guess,word):
+            print(f"Good guess! {guess} is in the word.")
+        else:
+            print(f"Sorry, {guess} is not in the word. Try again.")
 
