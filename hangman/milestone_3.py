@@ -19,9 +19,8 @@ def is_guess_in_word(guess:str, word:str) -> bool:
 if __name__ == "__main__":
     while True:
         guess = input('Please Enter a single Character\n')
-        if is_alpha_character(guess) == False:
+        if is_single_character(guess) == False or is_alpha_character(guess) == False:
             print('Invalid letter. Please, enter a single alphabetical character.')
             continue
-        if is_guess_in_word(guess,word):
-            break
+        break 
 
