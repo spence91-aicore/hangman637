@@ -12,6 +12,8 @@ word_list : List[str] = \
     ]
 
 word = random.choice(word_list)
+guess : str
+
 
 if __name__ == "__main__":
     #print word list
@@ -19,3 +21,6 @@ if __name__ == "__main__":
     #print random word
     # random.choice(word_list)
     print(word)
+
+    guess = input('Please Enter a single Character\n')[0]
+    # print(guess)
