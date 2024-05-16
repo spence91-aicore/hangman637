@@ -28,18 +28,27 @@ class Hangman:
     
 
     def __init__(self, word_list : List[str], num_lives : int = 5) -> None:
-
+        self.num_lives = num_lives
         #pick a word at random from the list
         self.word = random.choice(word_list)
+        # init the word_guessed list - fill with '_' chars
         self.word_guessed : List[str] = list(['_' for i in self.word])
-        self.num_lives = num_lives
         # getting unique letters
         unique_letters = set(self.word)
         self.num_letters = len(unique_letters)
 
 
-
     def check_guess(self, guess : str) -> None:
+        '''
+        Checks if the letter is in the word.
+        If it is, it replaces the '_' in the word_guessed list with the letter.
+        If it is not, it reduces the number of lives by 1.
+
+        Parameters:
+        ----------
+        letter: str
+            The letter to be checked
+        '''
         guess = guess.lower()
         if guess in self.word:
             print(f"Good guess! {guess} is in the word.")
@@ -49,12 +58,11 @@ class Hangman:
                     self.word_guessed[index] = guess
             self.num_letters -= 1
         else:
+            #reduce num lives for bad guess
             self.num_lives -= 1  
             print(f"Sorry, {guess} is not in the word. Try again.")
             print(f"You have {self.num_lives} lives left")
   
-        return
-
     @staticmethod
     def _is_alpha_character(guess:str) -> bool:
         '''checks to see if the string is an alphabetical character'''
