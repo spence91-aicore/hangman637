@@ -1,3 +1,4 @@
+import random
 from typing import List
 
 class Hangman:
@@ -17,19 +18,39 @@ class Hangman:
     ----------
     '''
 
-    word_list : List[str]
+    # word_list : List[str]
     num_list : int
     num_letters : int
+    num_lives : int
     word : str 
     word_guessed : List[str]
     list_of_guesses : List[str] = []
     
 
     def __init__(self, word_list : List[str], num_lives : int = 5) -> None:
-        pass
+
+        #pick a word at random from the list
+        self.word = random.choice(word_list)
+        self.word_guessed : List[str] = list(['_' for i in self.word])
+        self.num_lives = num_lives
+        # getting unique letters
+        unique_letters = set(self.word)
+        self.num_letters = len(unique_letters)
+
+
 
     def check_guess(self, guess : str) -> None:
-        pass
+        guess = guess.lower()
+        if guess in self.word:
+            print(f"Good guess! {guess} is in the word.")
+            # update word_guessed, to reflect the correct guess
+            for index in range(len(self.word)):
+                if guess == self.word[index]:
+                    self.word_guessed[index] = guess
+            self.num_letters -= 1
+        else:
+            print(f"Sorry, {guess} is not in the word. Try again.")    
+        return
 
     @staticmethod
     def _is_alpha_character(guess:str) -> bool:
@@ -68,9 +89,13 @@ class Hangman:
     
 if __name__ == '__main__':
     word_list = ['apple', 'banana', 'orange', 'pear', 'strawberry', 'watermelon']
+    word_list = ['apple']
     game = Hangman(word_list, num_lives=5)
-    game.list_of_guesses = ['a','o']
+    # game.list_of_guesses = ['a','o']
     game.ask_for_input()
     print(game.list_of_guesses)
+    print(game.word_guessed)
+    print(game.num_letters)
+    print(game.word_guessed)
 
     # play_game(word_list)
