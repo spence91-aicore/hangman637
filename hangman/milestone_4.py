@@ -49,7 +49,10 @@ class Hangman:
                     self.word_guessed[index] = guess
             self.num_letters -= 1
         else:
-            print(f"Sorry, {guess} is not in the word. Try again.")    
+            self.num_lives -= 1  
+            print(f"Sorry, {guess} is not in the word. Try again.")
+            print(f"You have {self.num_lives} lives left")
+  
         return
 
     @staticmethod
