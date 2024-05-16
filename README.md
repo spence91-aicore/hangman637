@@ -15,8 +15,16 @@ git clone https://github.com/spence91-aicore/hangman637.git
 
 ```
 cd hangman637
-python hangman_template.py
+python hangman.py
 ```
+
+If you want to change the **word list**, this can be done by editing **line 4** of the main `hangman.py` file.
+
+### File Structure
+
+All files are by **milestone**, with the final one, **milestone_5.py**, being a working game of hangman. These are all found in the `hangman` folder.
+
+Main file runs code found in `milestone_5.py` file.
 
 ## License
 
