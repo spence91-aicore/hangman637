@@ -12,8 +12,14 @@ word_list : List[str] = \
     ]
 
 word = random.choice(word_list)
-guess : str
+guess : str = ""
 
+def is_single_character(guess:str) -> bool:
+    '''checks to see if string is a single character. Returns a True or a False'''
+    if len(guess) == 1:
+        return True
+    else:
+        return False
 
 if __name__ == "__main__":
     #print word list
@@ -24,7 +30,7 @@ if __name__ == "__main__":
 
     guess = input('Please Enter a single Character\n')
     # print(guess)
-    if len(guess) == 1:
+    if is_single_character():
         print('Good guess!')
     else:
         print('Oops! That is not a vlaid input')
