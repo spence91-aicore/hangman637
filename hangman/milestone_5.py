@@ -16,10 +16,18 @@ class Hangman:
 
     Attributes:
     ----------
+    num_letters: int
+        number of uniq letters in word that needs to be guessed
+    num_lives: int
+        number of lives the player has left
+    word: str
+        the word that needs to be guessed, chosed at random from the list provided (word_list)
+    word_guessed: List[str]
+        a visual of the players progress, starts with all chars as '_', which will be revelaved as the player guesses correctly 
+    list_of_guesses : List[str]
+        a list of characters the player has already guessed, which will be added to with each guess
     '''
 
-    # word_list : List[str]
-    num_list : int
     num_letters : int
     num_lives : int
     word : str 
